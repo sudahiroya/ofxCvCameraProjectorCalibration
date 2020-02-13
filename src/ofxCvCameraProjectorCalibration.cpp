@@ -11,6 +11,8 @@
 
 #include "ofxCvCameraProjectorCalibration.h"
 
+using namespace cv;
+
 namespace ofxCv {
     
     

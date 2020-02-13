@@ -94,9 +94,9 @@ namespace ofxCv {
         void resetBoards();
         int cleanStereo(float maxReproj);
         
-        vector<Point2f> getProjected(const vector<Point3f> & ptsInWorld,
-                                     const cv::Mat & rotObjToCam = Mat::zeros(3, 1, CV_64F),
-                                     const cv::Mat & transObjToCam = Mat::zeros(3, 1, CV_64F));
+        vector<cv::Point2f> getProjected(const vector<cv::Point3f> & ptsInWorld,
+                                     const cv::Mat & rotObjToCam = cv::Mat::zeros(3, 1, CV_64F),
+                                     const cv::Mat & transObjToCam = cv::Mat::zeros(3, 1, CV_64F));
         
         CameraCalibration & getCalibrationCamera() { return calibrationCamera; }
         ProjectorCalibration & getCalibrationProjector() { return calibrationProjector; }

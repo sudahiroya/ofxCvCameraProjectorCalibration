@@ -1,4 +1,4 @@
-ofxCvCameraProjector
-ofxCvFeaturesTracker
 ofxCv
+ofxCvCameraProjectorCalibration
+ofxCvFeaturesTracker
 ofxOpenCv

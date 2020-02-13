@@ -1,4 +1,4 @@
-ofxCvCameraProjector
 ofxCv
-ofxOpenCv
+ofxCvCameraProjectorCalibration
 ofxGui
+ofxOpenCv

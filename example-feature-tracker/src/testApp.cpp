@@ -1,6 +1,7 @@
 #include "testApp.h"
 #include "ofAppGLFWWindow.h"
 
+using namespace cv;
 using namespace ofxCv;
 
 void testApp::setup() {
@@ -29,7 +30,7 @@ void testApp::setupCamProj(){
 }
 
 void testApp::setupTracker(){
-    trackedImg.loadImage("ville_crea.png");
+    trackedImg.load("ville_crea.png");
     tracker.setup(camproj.getCalibrationCamera());
     tracker.add(trackedImg);
     tracker.startThread();
@@ -115,7 +116,7 @@ void testApp::drawUsingCV(){
     ofSetColor(ofColor::red);
     for (int i=0; i<outPts.size(); i++){
         int next = (i+1) % outPts.size();
-        ofLine(outPts[i].x, outPts[i].y, outPts[next].x, outPts[next].y);
+        ofDrawLine(outPts[i].x, outPts[i].y, outPts[next].x, outPts[next].y);
     }
     ofPopMatrix();
     
@@ -147,8 +148,8 @@ void testApp::drawUsingGL(){
     ofScale(bookSizeCm.x/bookSizePx.x, bookSizeCm.y/bookSizePx.y, 0);
     
     // project some square animation
-    float w = trackedImg.width;
-    float h = trackedImg.height;
+    float w = trackedImg.getWidth();
+    float h = trackedImg.getHeight();
     float millis = ofGetElapsedTimeMillis();
     int numRec = 10;
     ofNoFill();
@@ -157,7 +158,7 @@ void testApp::drawUsingGL(){
         float ch = h / numRec*i;
         int cc = (sin(millis/100 + i) * 0.5 + 0.5) * 255;
         ofSetColor(cc);
-        ofRect(-cw*0.5, -ch*0.5, cw, ch);
+        ofDrawRectangle(-cw*0.5, -ch*0.5, cw, ch);
     }
     
     ofPopMatrix();

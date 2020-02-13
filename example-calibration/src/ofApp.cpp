@@ -317,7 +317,7 @@ void ofApp::draw(){
             break;
     }
     
-    ofDrawBitmapString(getLog(20), 10, cam.height+20);
+    ofDrawBitmapString(getLog(20), 10, cam.getHeight()+20);
 }
 
 void ofApp::drawReprojErrors(string name, const ofxCv::Calibration & calib, int y){
@@ -343,7 +343,7 @@ void ofApp::drawLastCameraImagePoints(){
     
     ofPushStyle(); ofSetColor(ofColor::blue);
     for(const auto & p : imagePoints.back()) {
-        ofCircle(ofxCv::toOf(p), 3);
+        ofDrawCircle(ofxCv::toOf(p), 3);
     }
     ofPopStyle();
 }
@@ -360,7 +360,7 @@ void ofApp::drawProjectorPattern(){
     {
         ofSetColor(ofColor::white);
         for(const auto & p : camProjCalib.getCalibrationProjector().getCandidateImagePoints()) {
-            ofCircle(p.x, p.y, 4);
+            ofDrawCircle(p.x, p.y, 4);
         }
     }
     ofViewport(vp);
